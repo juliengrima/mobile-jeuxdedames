@@ -8,17 +8,16 @@ export default class Artist extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Home',
-    }
+        title: 'Tri par artistes',
+    };
 
     render(){
         return(
 
             <View>
-
                 <Text>VOICI MA PAGE ARTISTES</Text>
-
             </View>
+
         )
     }
 }
@@ -53,7 +52,7 @@ const Tabs = TabNavigator({
     Job: {screen: Job},
     Partner: { screen: Partner }
 }, {
-    // tabBarPosition: 'top', //position de navbar
+    tabBarPosition: 'bottom', //position de navbar
     tabBarOptions: {
         //options label ou icones et indicateur
         showIcon: false,
@@ -63,7 +62,6 @@ const Tabs = TabNavigator({
         labelStyle: {
             color: '#ffff1a',
             fontSize: 12,
-            marginBottom: 15
         },
         tabStyle: {
             backgroundColor: '#03C9A9',

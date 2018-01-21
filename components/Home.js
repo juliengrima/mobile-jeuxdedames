@@ -3,10 +3,13 @@ import {View, StyleSheet, Image, Text} from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import Button from 'apsl-react-native-button'
 import Artist from "./Artist";
+import Job from "./Job";
+import Partner from "./Partner";
 
 class Home extends React.Component{
 
     static navigationOptions = {
+
         header: null,
         title: 'Home',
     }
@@ -15,8 +18,14 @@ class Home extends React.Component{
         super(props)
     }
 
-    submit(){
+    submit1(){
         this.props.navigation.navigate('Artist')
+    }
+    submit2(){
+        this.props.navigation.navigate('Job')
+    }
+    submit3(){
+        this.props.navigation.navigate('Partner')
     }
 
     render(){
@@ -27,21 +36,15 @@ class Home extends React.Component{
 
                 <Image source={require('../assets/home-image.png')} style={Style.image}/>
 
-                <Button
-                    onPress={() => this.submit()}
-                    style={Style.bouton}>
+                <Button onPress={() => this.submit1()} style={Style.bouton}>
                     <Text style={Style.textBouton}>Artistes</Text>
                 </Button>
-                {/*<Button*/}
-                    {/*onPress={() => this.submit()}*/}
-                    {/*style={Style.bouton}>*/}
-                    {/*<Text style={Style.textBouton}>Métiers</Text>*/}
-                {/*</Button>*/}
-                {/*<Button*/}
-                    {/*onPress={() => this.submit()}*/}
-                    {/*style={Style.bouton}>*/}
-                    {/*<Text style={Style.textBouton}>Partenaires</Text>*/}
-                {/*</Button>*/}
+                <Button onPress={() => this.submit2()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>Métiers</Text>
+                </Button>
+                <Button onPress={() => this.submit3()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>Partenaires</Text>
+                </Button>
 
             </View>
         )
@@ -77,5 +80,11 @@ export default StackNavigator({
     },
     Artist:{
         screen: Artist
+    },
+    Job:{
+        screen: Job
+    },
+    Partner:{
+        screen: Partner
     }
 })

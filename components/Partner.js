@@ -4,8 +4,8 @@ import {Text} from 'react-native'
 export default class Partner extends React.Component {
 
     static navigationOptions = {
-        header: null,
-        title: 'Home',
+
+        title: 'Tri par partenaires',
     }
 
     render(){

@@ -4,8 +4,8 @@ import {Text} from 'react-native'
 export default class Job extends React.Component {
 
     static navigationOptions = {
-        header: null,
-        title: 'Home',
+
+        title: 'Tri par métiers',
     }
 
     render(){
