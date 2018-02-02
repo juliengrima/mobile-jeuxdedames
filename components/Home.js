@@ -11,7 +11,8 @@ class Home extends React.Component{
     static navigationOptions = {
 
         header: null,
-        title: 'Home',
+        title: 'Home'
+
     }
 
     constructor (props) {
@@ -71,6 +72,12 @@ const Style = StyleSheet.create({
         color: '#ffff1a',
         fontSize: 20,
         fontWeight: 'bold',
+    },
+    header:{
+        backgroundColor: '#03C9A9',
+    },
+    headerTitle: {
+        color: '#ffff1a'
     }
 });
 
@@ -79,12 +86,13 @@ export default StackNavigator({
         screen: Home
     },
     Artist:{
-        screen: Artist
+        screen: Artist,
     },
     Job:{
-        screen: Job
+        screen: Job,
     },
     Partner:{
-        screen: Partner
-    }
+        screen: Partner,
+    },
+
 })
