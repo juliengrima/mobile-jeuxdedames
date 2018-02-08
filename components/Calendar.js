@@ -1,7 +1,8 @@
 import React from 'react'
-import {StyleSheet, Text, View, ActivityIndicator} from 'react-native'
+import {StyleSheet, Text, View, ActivityIndicator, ListView, ScrollView} from 'react-native'
 import { TabNavigator } from 'react-navigation'
 import axios from 'axios'
+import Row from './Row'
 import Job from './Job'
 import Partner from './Partner'
 
@@ -9,7 +10,7 @@ export default class Artist extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Tri par artistes',
+        title: 'Evènements',
         headerStyle:{
             backgroundColor: '#03C9A9'
         },
@@ -25,19 +26,18 @@ export default class Artist extends React.Component {
     constructor (props){
         super(props)
         this.state = {
-            city: 'Fontainebleau',
             report: null
         }
         //EN ATTENTE DE RECEVOIR LES DONNEES DE JDD
-        this.fetchWeather()
+        this.calendar()
     }
 
-    fetchWeather(){
-        axios.get('http://localhost/Mes_Projets/bleau_S1_2016_jeuxdedames/web/app_dev.php/mobile')
-            .then((response)  => {
-                // console.log(response.data)
-                this.setState({report: response.data})
-            })
+    calendar(){
+        axios.get('http://www.lesjeuxdedames.com/events/')
+        .then((response)  => {
+            // console.log(response.data)
+            this.setState({report: response.data})
+        })
     }
 
     render(){
@@ -51,18 +51,24 @@ export default class Artist extends React.Component {
         }
         else{
 
+            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
             return(
+
                 <View style={Style.view}>
 
                     <ListView
                         style={Style.contentContainer}
                         dataSource={ds.cloneWithRows(this.state.report)}
-                        renderRow={(row) => <Text>{row.id}</Text>,
-                            (row) => <Text>{row.commercant.nom}</Text>,
-                            (row) => <Text>{row.artistess.nom}</Text>}
+                        renderRow={(row, j, k) => <Row id={row} index={k}/>}
+
+                        // renderRow={(row) => <Text>{row.id}</Text>,
+                        //     (row) => <Text>{row.titre}</Text>,
+                        //     (row) => <Text>{row.contenu}</Text>}
                     />
 
                 </View>
+
             )
         }
     }
@@ -81,19 +87,29 @@ const Style = StyleSheet.create({
         flexDirection: 'row',
         padding: 10
     },
-    image: {
-        marginTop: 30,
-        marginBottom: 50,
-        width: 350,
-        height: 350
-    },
-    bouton: {
-        backgroundColor: '#03C9A9',
-        borderColor: '#ffff1a'
-    },
-    textBouton: {
-        color: '#ffff1a',
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
+
+    // image: {
+    //     marginTop: 30,
+    //     marginBottom: 50,
+    //     width: 350,
+    //     height: 350
+    // },
+    // bouton: {
+    //     backgroundColor: '#03C9A9',
+    //     borderColor: '#ffff1a'
+    // },
+    // textBouton: {
+    //     color: '#ffff1a',
+    //     fontSize: 20,
+    //     fontWeight: 'bold',
+    // },
+    // liste: {
+    //     marginTop: 50,
+    // },
+    contentContainer: {
+        marginTop: 10,
+        marginBottom: 10,
+        paddingBottom: 5,
+
+    }
 });

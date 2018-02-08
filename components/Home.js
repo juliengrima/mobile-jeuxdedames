@@ -5,6 +5,7 @@ import Button from 'apsl-react-native-button'
 import Artist from "./Artist";
 import Job from "./Job";
 import Partner from "./Partner";
+import Calendar from "./Calendar";
 
 class Home extends React.Component{
 
@@ -28,6 +29,9 @@ class Home extends React.Component{
     submit3(){
         this.props.navigation.navigate('Partner')
     }
+    submit4(){
+        this.props.navigation.navigate('Calendar')
+    }
 
     render(){
 
@@ -46,6 +50,9 @@ class Home extends React.Component{
                 <Button onPress={() => this.submit3()} style={Style.bouton}>
                     <Text style={Style.textBouton}>Partenaires</Text>
                 </Button>
+                <Button onPress={() => this.submit4()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>calendrier</Text>
+                </Button>
 
             </View>
         )
@@ -60,7 +67,7 @@ const Style = StyleSheet.create({
     },
     image: {
         marginTop: 30,
-        marginBottom: 50,
+        marginBottom: 0,
         width: 350,
         height: 350
     },
@@ -91,8 +98,8 @@ export default StackNavigator({
     Job:{
         screen: Job,
     },
-    Partner:{
-        screen: Partner,
+    Calendar:{
+        screen: Calendar,
     },
 
 })
