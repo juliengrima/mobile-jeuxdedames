@@ -1,8 +1,8 @@
 import React from 'react'
-import {StyleSheet, Text, View, ActivityIndicator, ListView, ScrollView} from 'react-native'
+import {StyleSheet, View, ActivityIndicator, ListView} from 'react-native'
 import { TabNavigator } from 'react-navigation'
 import axios from 'axios'
-import Row from './Row'
+import Row from './Rows/Row'
 import Job from './Job'
 import Partner from './Partner'
 
@@ -61,10 +61,6 @@ export default class Artist extends React.Component {
                         style={Style.contentContainer}
                         dataSource={ds.cloneWithRows(this.state.report)}
                         renderRow={(row, j, k) => <Row id={row} index={k}/>}
-
-                        // renderRow={(row) => <Text>{row.id}</Text>,
-                        //     (row) => <Text>{row.titre}</Text>,
-                        //     (row) => <Text>{row.contenu}</Text>}
                     />
 
                 </View>
@@ -87,29 +83,4 @@ const Style = StyleSheet.create({
         flexDirection: 'row',
         padding: 10
     },
-
-    // image: {
-    //     marginTop: 30,
-    //     marginBottom: 50,
-    //     width: 350,
-    //     height: 350
-    // },
-    // bouton: {
-    //     backgroundColor: '#03C9A9',
-    //     borderColor: '#ffff1a'
-    // },
-    // textBouton: {
-    //     color: '#ffff1a',
-    //     fontSize: 20,
-    //     fontWeight: 'bold',
-    // },
-    // liste: {
-    //     marginTop: 50,
-    // },
-    contentContainer: {
-        marginTop: 10,
-        marginBottom: 10,
-        paddingBottom: 5,
-
-    }
 });
