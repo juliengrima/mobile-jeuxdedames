@@ -10,6 +10,8 @@ export default class Row extends React.Component {
 
     }
 
+    new Date()
+
     render(){
 
         if (this.props.id.start >= ){
