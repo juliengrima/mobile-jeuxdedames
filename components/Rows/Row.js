@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {StyleSheet, Text, View, ScrollView, Image} from 'react-native'
 
 export default class Row extends React.Component {
@@ -11,23 +11,29 @@ export default class Row extends React.Component {
     }
 
     render(){
-        return(
-            <View style = {Style.view}>
 
-                <Text style = {Style.titre}>
-                    {this.props.id.titre}
-                </Text>
+        if (this.props.id.start >= ){
 
-                <Text style = {Style.contenu}>
-                    {this.props.id.contenu}
-                </Text>
+            return(
+                <View style = {Style.view}>
 
-                <Text style = {Style.contenu}>
-                    {this.props.id.start} / {this.props.id.end}
-                </Text>
+                    <Text style = {Style.titre}>
+                        {this.props.id.titre}
+                    </Text>
 
-            </View>
-        )
+                    <Text style = {Style.contenu}>
+                        {this.props.id.contenu}
+                    </Text>
+
+                    <Text style = {Style.contenu}>
+                        {this.props.id.start} / {this.props.id.end}
+                    </Text>
+
+                </View>
+            )
+
+        }
+
     }
 
 }

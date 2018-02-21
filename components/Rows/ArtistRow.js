@@ -1,16 +1,66 @@
 import React from 'react'
 import {StyleSheet, Text, View, ScrollView, Image} from 'react-native'
+import getDirections from 'react-native-google-maps-directions'
 
 export default class Row extends React.Component {
 
+    // Recuoeration localisation
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            latitude: null,
+            longitude: null,
+            error: null,
+        };
+    }
+
+    componentDidMount() {
+        this.watchId = navigator.geolocation.watchPosition(
+            (position) => {
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    error: null,
+                });
+            },
+            (error) => this.setState({ error: error.message }),
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
+        );
+    }
+
+    componentWillUnmount() {
+        navigator.geolocation.clearWatch(this.watchId);
+    }
+
+    // recuperation du json
     static  propTypes = {
 
         id: React.PropTypes,
         index: React.PropTypes
 
     }
-    submit(){
-        this.props.navigation.navigate('Calendar')
+
+    // mis en place des donnees de géolocalisation
+    handleGetDirections = () => {
+        const data = {
+            source: {
+                latitude: this.state.latitude,
+                longitude: this.state.longitude
+            },
+            destination: {
+                latitude: this.props.id.commercant.lat,
+                longitude: this.props.id.commercant.lng
+            },
+            params: [
+                {
+                    key: "AIzaSyAjVJ0O2apVaT0jdUYqiOpa5FfkO-aBgug",
+                    value: "w"
+                }
+            ]
+        }
+
+        getDirections(data)
     }
 
     render(){
@@ -29,9 +79,7 @@ export default class Row extends React.Component {
                     {this.props.id.dateDebut} / {this.props.id.dateFin}
                 </Text>
 
-                <Button onPress={() => this.submit()} style={Style.bouton}>
-                    <Text style={Style.textBouton}>Itinéraire</Text>
-                </Button>
+                <Button onPress={this.handleGetDirections} title="Itinéraire" />
 
             </View>
         )

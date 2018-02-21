@@ -6,13 +6,14 @@ import Artist from "./Artist";
 import Job from "./Job";
 import Partner from "./Partner";
 import Calendar from "./Calendar";
+import Geo from "./Geolocation/Geolocation";
 
 class Home extends React.Component{
 
     static navigationOptions = {
 
         header: null,
-        title: 'Home'
+        title: 'Jeux de Dames'
 
     }
 
@@ -24,7 +25,7 @@ class Home extends React.Component{
         this.props.navigation.navigate('Artist')
     }
     submit2(){
-        this.props.navigation.navigate('Job')
+        this.props.navigation.navigate('Geo')
     }
     submit3(){
         this.props.navigation.navigate('Partner')
