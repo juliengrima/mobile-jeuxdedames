@@ -6,15 +6,12 @@ export default class Row extends React.Component {
     static  propTypes = {
 
         id: React.PropTypes,
-        index: React.PropTypes
-
+        index: React.PropTypes,
     }
-
-    new Date()
 
     render(){
 
-        if (this.props.id.start >= ){
+        if (this.props.id.start >= this.date){
 
             return(
                 <View style = {Style.view}>
