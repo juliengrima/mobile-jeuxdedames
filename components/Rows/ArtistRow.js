@@ -71,15 +71,18 @@ export default class Row extends React.Component {
                     {this.props.id.artistess.nom}
                 </Text>
 
-                <Text style = {Style.contenu}>
-                    {this.props.id.commercant.nom}
-                </Text>
+                <ScrollView contentContainerStyle={Style.contentContainer}>
+                    <View>
+                        <Text style = {Style.contenu}>
+                            {this.props.id.commercant.nom}
+                        </Text>
+                        <Text style = {Style.contenu}>
+                            {this.props.id.dateDebut} / {this.props.id.dateFin}
+                        </Text>
+                    </View>
+                </ScrollView>
 
-                <Text style = {Style.contenu}>
-                    {this.props.id.dateDebut} / {this.props.id.dateFin}
-                </Text>
-
-                <Button onPress={this.handleGetDirections} title="Itinéraire" />
+                <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} />
 
             </View>
         )
@@ -96,18 +99,19 @@ const Style = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: '#ffff1a',
     },
+    contentContainer: {
+        paddingVertical: 20
+    },
     titre: {
         color: '#ffff1a',
     },
     contenu: {
         color: '#ffffff',
     },
-    contentContainer: {
-        paddingVertical: 20
-    },
     bouton: {
-        backgroundColor: '#03C9A9',
-        borderColor: '#ffff1a'
+        marginHorizontal: 50,
+        backgroundColor: '#9cbeec',
+        // borderColor: '#ffff1a'
     },
     textBouton: {
         color: '#ffff1a',
