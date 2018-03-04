@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, ScrollView, Image} from 'react-native'
+import {StyleSheet, Text, View, ScrollView, Button, Image} from 'react-native'
 import getDirections from 'react-native-google-maps-directions'
 
 export default class Row extends React.Component {
@@ -45,13 +45,14 @@ export default class Row extends React.Component {
     handleGetDirections = () => {
         const data = {
             source: {
+                latitude: this.props.id.lat,
+                longitude: this.props.id.lng
+            },
+            destination: {
                 latitude: this.state.latitude,
                 longitude: this.state.longitude
             },
-            destination: {
-                latitude: this.props.id.commercant.lat,
-                longitude: this.props.id.commercant.lng
-            },
+
             params: [
                 {
                     key: "AIzaSyAjVJ0O2apVaT0jdUYqiOpa5FfkO-aBgug",
@@ -65,26 +66,32 @@ export default class Row extends React.Component {
 
     render(){
         return(
-            <View style = {Style.view}>
 
-                <Text style = {Style.titre}>
-                    {this.props.id.artistess.nom}
-                </Text>
+            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true}>
 
-                <ScrollView contentContainerStyle={Style.contentContainer}>
-                    <View>
-                        <Text style = {Style.contenu}>
-                            {this.props.id.commercant.nom}
-                        </Text>
-                        <Text style = {Style.contenu}>
-                            {this.props.id.dateDebut} / {this.props.id.dateFin}
-                        </Text>
-                    </View>
-                </ScrollView>
+                <View style = {Style.view} >
+                    <Text style = {Style.titre}>
+                        {this.props.id.nom}
+                    </Text>
+                    <Text style = {Style.titre}>
+                        {this.props.id.nomDeLaCategorie}
+                    </Text>
+                </View>
+                <View style = {Style.view2} >
+                    <Text style = {Style.contenu}>
+                        {this.props.id.nomco}
+                    </Text>
+                    <Text style = {Style.contenu}>
+                        {this.props.id.adresse}, {this.props.id.code} {this.props.id.ville}
+                    </Text>
+                </View>
 
-                <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} />
+                <View style = {Style.viewButton} >
+                    <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} />
+                </View>
 
-            </View>
+            </ScrollView>
+
         )
     }
 
@@ -98,20 +105,42 @@ const Style = StyleSheet.create({
         borderWidth: 2,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
+        paddingHorizontal: 120,
+        paddingVertical: 30
+    },
+    view2: {
+        flex: 1,
+        marginBottom: 20,
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderColor: '#ffff1a',
+        paddingHorizontal: 100,
+        paddingVertical: 30
+    },
+    viewButton: {
+        flex: 1,
+        marginBottom: 20,
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderColor: '#ffff1a',
+        paddingHorizontal: 50,
+        paddingVertical: 30
     },
     contentContainer: {
         paddingVertical: 20
     },
     titre: {
         color: '#ffff1a',
+        fontSize: 15
     },
     contenu: {
         color: '#ffffff',
     },
     bouton: {
-        marginHorizontal: 50,
-        backgroundColor: '#9cbeec',
-        // borderColor: '#ffff1a'
+        width: 50,
+        height: 30,
+        backgroundColor: '#03C9A9',
+        borderColor: '#ffff1a'
     },
     textBouton: {
         color: '#ffff1a',

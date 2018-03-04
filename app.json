@@ -1,18 +1,18 @@
 {
   "expo": {
     "name": "jeux-de-dames",
-    "description": "This project is really great.",
-    "slug": "jeux-de-dames",
+    "description": "Application permettant de lister les acteurs entourantl'association Les Jeux de Dames et de générer un itinéraire poiur visiter les exposants.",
+    "slug": "jeux-de-dames 'version beta' ",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/home-image.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/home-image.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0bd7e4"
     },
     "ios": {
       "supportsTablet": true

@@ -11,27 +11,23 @@ export default class Row extends React.Component {
 
     render(){
 
-        if (this.props.id.start >= this.date){
+        return(
+            <View style = {Style.view}>
 
-            return(
-                <View style = {Style.view}>
+                <Text style = {Style.titre}>
+                    {this.props.id.titre}
+                </Text>
 
-                    <Text style = {Style.titre}>
-                        {this.props.id.titre}
-                    </Text>
+                <Text style = {Style.contenu}>
+                    {this.props.id.contenu}
+                </Text>
 
-                    <Text style = {Style.contenu}>
-                        {this.props.id.contenu}
-                    </Text>
+                <Text style = {Style.contenu}>
+                    {this.props.id.start} / {this.props.id.end}
+                </Text>
 
-                    <Text style = {Style.contenu}>
-                        {this.props.id.start} / {this.props.id.end}
-                    </Text>
-
-                </View>
-            )
-
-        }
+            </View>
+        )
 
     }
 

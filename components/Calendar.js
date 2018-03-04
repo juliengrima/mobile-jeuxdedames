@@ -33,7 +33,7 @@ export default class Artist extends React.Component {
     }
 
     calendar(){
-        axios.get('http://www.lesjeuxdedames.com/events/')
+        axios.get('http://www.lesjeuxdedames.com/mobile/events')
         .then((response)  => {
             // console.log(response.data)
             this.setState({report: response.data})
