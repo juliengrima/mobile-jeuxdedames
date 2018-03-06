@@ -10,7 +10,7 @@ export default class Job extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Tri par m',
+        title: 'Tri par métiers',
         headerStyle:{
             backgroundColor: '#03C9A9'
         },

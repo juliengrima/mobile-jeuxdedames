@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "jeux-de-dames",
+    "name": "les Jeux de Damess",
     "description": "Application permettant de lister les acteurs entourantl'association Les Jeux de Dames et de générer un itinéraire poiur visiter les exposants.",
     "slug": "jeuxdedames",
     "privacy": "public",
@@ -15,7 +15,11 @@
       "backgroundColor": "#0bd7e4"
     },
     "ios": {
+      "bundleIdentifier": "com.Cibyx-Technology.LesJeuxdeDame",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.Cibyx-Technology.LesJeuxdeDames"
     }
   }
 }
