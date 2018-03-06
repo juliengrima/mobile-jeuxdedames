@@ -1,6 +1,7 @@
 import React from 'react'
-import {StyleSheet, Text, View, ScrollView, Button, Image} from 'react-native'
+import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import getDirections from 'react-native-google-maps-directions'
+import Button from 'apsl-react-native-button'
 
 export default class Row extends React.Component {
 
@@ -67,7 +68,7 @@ export default class Row extends React.Component {
     render(){
         return(
 
-            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true}>
+            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true} showsHorizontalScrollIndicator={false}>
 
                 <View style = {Style.view} >
                     <Text style = {Style.titre}>
@@ -87,7 +88,9 @@ export default class Row extends React.Component {
                 </View>
 
                 <View style = {Style.viewButton} >
-                    <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} />
+                    <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} >
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
                 </View>
 
             </ScrollView>
@@ -101,50 +104,58 @@ const Style = StyleSheet.create({
 
     view: {
         flex: 1,
-        marginBottom: 20,
+        marginBottom: 0,
         borderWidth: 2,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
-        paddingHorizontal: 120,
-        paddingVertical: 30
+        paddingHorizontal: 92,
+        paddingVertical: 0
     },
     view2: {
         flex: 1,
-        marginBottom: 20,
+        marginBottom: 0,
         borderWidth: 2,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
-        paddingHorizontal: 100,
-        paddingVertical: 30
+        paddingHorizontal: 5,
+        paddingVertical: 5
     },
     viewButton: {
         flex: 1,
-        marginBottom: 20,
+        marginBottom: 0,
         borderWidth: 2,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
-        paddingHorizontal: 50,
-        paddingVertical: 30
+        paddingHorizontal: 10,
+        paddingVertical: 5
     },
     contentContainer: {
-        paddingVertical: 20
+        paddingVertical: 10,
     },
     titre: {
         color: '#ffff1a',
-        fontSize: 15
+        fontSize: 20,
+        paddingTop: 10
     },
     contenu: {
         color: '#ffffff',
+        fontSize: 12,
+        paddingTop: 10
+    },
+    contenu2: {
+        color: '#ffffff',
+        fontSize: 12,
+        paddingTop: 15
     },
     bouton: {
         width: 50,
         height: 30,
         backgroundColor: '#03C9A9',
-        borderColor: '#ffff1a'
+        borderColor: '#ffff1a',
     },
     textBouton: {
         color: '#ffff1a',
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: 'bold',
     },
 
