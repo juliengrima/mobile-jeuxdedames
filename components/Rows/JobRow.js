@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, ScrollView, Button, Image} from 'react-native'
+import {StyleSheet, Text, View, ScrollView, Button} from 'react-native'
 import getDirections from 'react-native-google-maps-directions'
 
 export default class Row extends React.Component {

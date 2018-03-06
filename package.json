@@ -9,6 +9,7 @@
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-data-table": "^0.2.0",
+    "react-native-datatable": "0.0.8",
     "react-native-google-maps-directions": "^1.1.2",
     "react-navigation": "^1.4.0"
   }
