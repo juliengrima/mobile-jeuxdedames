@@ -25,7 +25,7 @@ class Home extends React.Component{
         this.props.navigation.navigate('Artist')
     }
     submit2(){
-        this.props.navigation.navigate('Geo')
+        this.props.navigation.navigate('Job')
     }
     submit3(){
         this.props.navigation.navigate('Partner')
