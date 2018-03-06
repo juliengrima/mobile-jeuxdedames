@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "les Jeux de Damess",
+    "name": "les Jeux de Dames",
     "description": "Application permettant de lister les acteurs entourantl'association Les Jeux de Dames et de générer un itinéraire poiur visiter les exposants.",
     "slug": "jeuxdedames",
     "privacy": "public",
