@@ -11,6 +11,7 @@
     "react-native-data-table": "^0.2.0",
     "react-native-datatable": "0.0.8",
     "react-native-google-maps-directions": "^1.1.2",
+    "react-native-scripts": "^1.11.1",
     "react-navigation": "^1.4.0"
   }
 }
