@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "les Jeux de Dames",
-    "description": "Application permettant de lister les acteurs entourantl'association Les Jeux de Dames et de générer un itinéraire poiur visiter les exposants.",
-    "slug": "jeuxdedames",
+    "description": "Application permettant de lister les acteurs entourant l'association Les Jeux de Dames et de générer un itinéraire pour visiter lescommerces et exposants.",
+    "slug": "https://expo.io/@juliengrima/jeuxdedames",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
