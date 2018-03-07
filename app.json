@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "les Jeux de Dames",
+    "name": "lesJeuxdeDames",
     "description": "Application permettant de lister les acteurs entourant l'association Les Jeux de Dames et de générer un itinéraire pour visiter lescommerces et exposants.",
-    "slug": "https://expo.io/@juliengrima/jeuxdedames",
+    "slug": "expo.io/@juliengrima/jeuxdedames",
     "privacy": "public",
     "sdkVersion": "25.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": ["android"],
+    "githubUrl": "https://github.com/juliengrima/mobile-jeuxdedames.git",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/jdd-icon.png",
@@ -14,12 +15,8 @@
       "resizeMode": "contain",
       "backgroundColor": "#0bd7e4"
     },
-    "ios": {
-      "bundleIdentifier": "com.Cibyx-Technology.LesJeuxdeDame",
-      "supportsTablet": true
-    },
     "android": {
-      "package": "com.Cibyx-Technology.LesJeuxdeDames"
+      "package": "com.cibyx-technology.lesjeuxdedames"
     }
   }
 }
