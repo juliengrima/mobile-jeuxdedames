@@ -2,7 +2,6 @@
   "expo": {
     "name": "lesJeuxdeDames",
     "description": "Application permettant de lister les acteurs entourant l'association Les Jeux de Dames et de générer un itinéraire pour visiter lescommerces et exposants.",
-    "slug": "expo.io/@juliengrima/jeuxdedames",
     "privacy": "public",
     "sdkVersion": "25.0.0",
     "platforms": ["android"],
@@ -16,7 +15,7 @@
       "backgroundColor": "#0bd7e4"
     },
     "android": {
-      "package": "com.cibyx-technology.lesjeuxdedames"
+      "package": "com.yourcompany.yourappname"
     }
   }
 }

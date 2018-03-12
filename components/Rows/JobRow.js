@@ -43,11 +43,12 @@ export default class Row extends React.Component {
     }
 
     // mis en place des donnees de géolocalisation
-    handleGetDirections = () => {
+    // mis en place des donnees de géolocalisation
+    handleGetDirectionsCo1 = () => {
         const data = {
             source: {
-                latitude: this.props.id.lat,
-                longitude: this.props.id.lng
+                latitude: this.props.id.latco1,
+                longitude: this.props.id.lngco1
             },
             destination: {
                 latitude: this.state.latitude,
@@ -60,40 +61,106 @@ export default class Row extends React.Component {
                     value: "w"
                 }
             ]
-        }
+        };
 
         getDirections(data)
-    }
+    };
 
-    render(){
-        return(
+    handleGetDirectionsCo2 = () => {
+        const data = {
+            source: {
+                latitude: this.props.id.latco2,
+                longitude: this.props.id.lngco2
+            },
+            destination: {
+                latitude: this.state.latitude,
+                longitude: this.state.longitude
+            },
 
-            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true} showsHorizontalScrollIndicator={false}>
+            params: [
+                {
+                    key: "AIzaSyAjVJ0O2apVaT0jdUYqiOpa5FfkO-aBgug",
+                    value: "w"
+                }
+            ]
+        };
 
-                <View style = {Style.view} >
-                    <Text style = {Style.titre}>
+        getDirections(data)
+    };
+
+    handleGetDirectionsCo3 = () => {
+        const data = {
+            source: {
+                latitude: this.props.id.latco3,
+                longitude: this.props.id.lngco3
+            },
+            destination: {
+                latitude: this.state.latitude,
+                longitude: this.state.longitude
+            },
+
+            params: [
+                {
+                    key: "AIzaSyAjVJ0O2apVaT0jdUYqiOpa5FfkO-aBgug",
+                    value: "w"
+                }
+            ]
+        };
+
+        getDirections(data)
+    };
+
+
+    render() {
+        return (
+
+            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true}
+                        showsHorizontalScrollIndicator={false}>
+
+                <View style={Style.view}>
+                    <Text style={Style.titre}>
+                        {this.props.id.nom}
+                    </Text>
+                    <Text style={Style.titre}>
                         {this.props.id.nomDeLaCategorie}
                     </Text>
                 </View>
-                <View style = {Style.view2} >
-                    <Text style = {Style.contenu2}>
-                        {this.props.id.nom}
+
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco1}
                     </Text>
-                </View>
-                <View style = {Style.view2} >
-                    <Text style = {Style.contenu}>
-                        {this.props.id.nomco}
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco1}, {this.props.id.codeco1} {this.props.id.villeco1}
                     </Text>
-                    <Text style = {Style.contenu}>
-                        {this.props.id.adresse},
-                    </Text>
-                    <Text style = {Style.contenu}>
-                        {this.props.id.code} {this.props.id.ville}
-                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo1} title="Itinéraire" style={Style.button}>
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
                 </View>
 
-                <View style = {Style.viewButton} >
-                    <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} >
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco2}
+                    </Text>
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco2}, {this.props.id.codeco2} {this.props.id.villeco2}
+                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo2} title="Itinéraire" style={Style.button}>
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
+                </View>
+
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco3}
+                    </Text>
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco3}, {this.props.id.codeco3} {this.props.id.villeco3}
+                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo3} title="Itinéraire" style={Style.button}>
                         <Text style={Style.textBouton}>Itinéraire</Text>
                     </Button>
                 </View>
@@ -109,17 +176,21 @@ const Style = StyleSheet.create({
 
     view: {
         flex: 1,
+        width: 360,
         marginBottom: 0,
         borderWidth: 2,
+        borderRightWidth: 8,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
-        paddingHorizontal: 92,
-        paddingVertical: 5
+        paddingHorizontal: 5,
+        paddingVertical: 0
     },
     view2: {
         flex: 1,
         marginBottom: 0,
         borderWidth: 2,
+        width: 350,
+        borderRightWidth: 8,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
         paddingHorizontal: 5,
@@ -144,7 +215,8 @@ const Style = StyleSheet.create({
     },
     contenu: {
         color: '#ffffff',
-        fontSize: 12
+        fontSize: 12,
+        paddingTop: 10
     },
     contenu2: {
         color: '#ffffff',

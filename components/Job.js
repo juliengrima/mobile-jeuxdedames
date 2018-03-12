@@ -33,7 +33,7 @@ export default class Job extends React.Component {
     }
 
     artist(){
-        axios.get('http://www.lesjeuxdedames.com/mobile')
+        axios.get('http://www.lesjeuxdedames.com/mobile/job')
             .then((response)  => {
                 // console.log(response.data)
                 this.setState({report: response.data})
