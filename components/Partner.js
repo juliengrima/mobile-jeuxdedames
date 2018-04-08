@@ -3,6 +3,8 @@ import {StyleSheet, Text} from 'react-native'
 import { TabNavigator } from 'react-navigation'
 import axios from 'axios'
 import Row from './Rows/PartnerRow'
+import Artist from './Artist'
+import Partner from './job'
 
 export default class Partner extends React.Component {
 
@@ -31,7 +33,7 @@ export default class Partner extends React.Component {
     }
 
     artist(){
-        axios.get('http://www.lesjeuxdedames.com/mobile')
+        axios.get('http://www.lesjeuxdedames.com/mobile/job')
             .then((response)  => {
                 // console.log(response.data)
                 this.setState({report: response.data})

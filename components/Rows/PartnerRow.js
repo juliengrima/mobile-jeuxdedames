@@ -16,6 +16,7 @@ export default class Row extends React.Component {
         };
     }
 
+    //Récupération de la position par géolocalisation
     componentDidMount() {
         this.watchId = navigator.geolocation.watchPosition(
             (position) => {
@@ -63,26 +64,16 @@ export default class Row extends React.Component {
         }
 
         getDirections(data)
-    }
+    };
 
-    render(){
-        return(
+    render() {
+        return (
 
-            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={true} showsHorizontalScrollIndicator={false}>
+            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={false} showsHorizontalScrollIndicator={false}>
 
                 <View style = {Style.view} >
                     <Text style = {Style.titre}>
-                        {this.props.id.nomDeLaCategorie}
-                    </Text>
-                </View>
-                <View style = {Style.view2} >
-                    <Text style = {Style.contenu2}>
                         {this.props.id.nom}
-                    </Text>
-                </View>
-                <View style = {Style.view2} >
-                    <Text style = {Style.contenu}>
-                        {this.props.id.nomco}
                     </Text>
                     <Text style = {Style.contenu}>
                         {this.props.id.adresse},
@@ -109,17 +100,21 @@ const Style = StyleSheet.create({
 
     view: {
         flex: 1,
+        width: 360,
         marginBottom: 0,
         borderWidth: 2,
+        borderRightWidth: 8,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
-        paddingHorizontal: 92,
-        paddingVertical: 5
+        paddingHorizontal: 5,
+        paddingVertical: 0
     },
     view2: {
         flex: 1,
         marginBottom: 0,
         borderWidth: 2,
+        width: 350,
+        borderRightWidth: 8,
         borderStyle: 'solid',
         borderColor: '#ffff1a',
         paddingHorizontal: 5,
@@ -144,7 +139,8 @@ const Style = StyleSheet.create({
     },
     contenu: {
         color: '#ffffff',
-        fontSize: 12
+        fontSize: 12,
+        paddingTop: 10
     },
     contenu2: {
         color: '#ffffff',

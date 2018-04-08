@@ -16,6 +16,7 @@ export default class Row extends React.Component {
         };
     }
 
+    //Récupération de la position par géolocalisation
     componentDidMount() {
         this.watchId = navigator.geolocation.watchPosition(
             (position) => {
@@ -42,7 +43,6 @@ export default class Row extends React.Component {
 
     }
 
-    // mis en place des donnees de géolocalisation
     // mis en place des donnees de géolocalisation
     handleGetDirectionsCo1 = () => {
         const data = {
@@ -109,7 +109,6 @@ export default class Row extends React.Component {
 
         getDirections(data)
     };
-
 
     render() {
         return (

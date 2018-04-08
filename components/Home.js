@@ -48,12 +48,12 @@ class Home extends React.Component{
                 <Button onPress={() => this.submit2()} style={Style.bouton}>
                     <Text style={Style.textBouton}>Métiers</Text>
                 </Button>
-                {/*<Button onPress={() => this.submit3()} style={Style.bouton}>*/}
-                    {/*<Text style={Style.textBouton}>Commerçants</Text>*/}
-                {/*</Button>*/}
-                <Button onPress={() => this.submit4()} style={Style.bouton}>
-                    <Text style={Style.textBouton}>calendrier</Text>
+                <Button onPress={() => this.submit3()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>Commerçants</Text>
                 </Button>
+                {/*<Button onPress={() => this.submit4()} style={Style.bouton}>*/}
+                    {/*<Text style={Style.textBouton}>calendrier</Text>*/}
+                {/*</Button>*/}
 
             </View>
         )
