@@ -4,9 +4,8 @@ import {StackNavigator} from 'react-navigation'
 import Button from 'apsl-react-native-button'
 import Artist from "./Artist";
 import Job from "./Job";
-import Partner from "./Partner";
+import Commerce from "./Commerce";
 import Calendar from "./Calendar";
-import Geo from "./Geolocation/Geolocation";
 
 class Home extends React.Component{
 
@@ -28,11 +27,11 @@ class Home extends React.Component{
         this.props.navigation.navigate('Job')
     }
     submit3(){
-        this.props.navigation.navigate('Partner')
+        this.props.navigation.navigate('Commerce')
     }
-    // submit4(){
-    //     this.props.navigation.navigate('Calendar')
-    // }
+    submit4(){
+        this.props.navigation.navigate('Calendar')
+    }
 
     render(){
 
@@ -98,6 +97,9 @@ export default StackNavigator({
     },
     Job:{
         screen: Job,
+    },
+    Commerce:{
+        screen: Commerce
     },
     Calendar:{
         screen: Calendar,

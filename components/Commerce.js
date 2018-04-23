@@ -1,16 +1,13 @@
 import React from 'react'
-import {StyleSheet} from 'react-native'
-import { TabNavigator } from 'react-navigation'
-import axios from 'axios'
-import Row from './Rows/PartnerRow'
-import Artist from './Artist'
-import Partner from './job'
+import {View, StyleSheet, ActivityIndicator, ListView} from 'react-native'
+import axios from "axios"
+import Row from "Rows/CommerceRow"
 
-export default class Partner extends React.Component {
+export default class commerce extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Tri par métiers',
+        title: 'Tri par commerçants',
         headerStyle:{
             backgroundColor: '#03C9A9'
         },
@@ -29,11 +26,11 @@ export default class Partner extends React.Component {
             report: null
         }
         //EN ATTENTE DE RECEVOIR LES DONNEES DE JDD
-        this.artist()
+        this.commerce()
     }
 
-    artist(){
-        axios.get('http://www.lesjeuxdedames.com/mobile/job')
+    commerce(){
+        axios.get('http://www.lesjeuxdedames.com/mobile/partner')
             .then((response)  => {
                 // console.log(response.data)
                 this.setState({report: response.data})
@@ -68,6 +65,7 @@ export default class Partner extends React.Component {
             )
         }
     }
+
 }
 
 const Style = StyleSheet.create({

@@ -1,10 +1,7 @@
 import React from 'react'
 import {StyleSheet, View, ActivityIndicator, ListView} from 'react-native'
-import { TabNavigator } from 'react-navigation'
 import axios from 'axios'
 import Row from './Rows/Row'
-import Job from './Job'
-import Partner from './Partner'
 
 export default class Artist extends React.Component {
 

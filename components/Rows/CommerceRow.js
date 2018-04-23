@@ -61,7 +61,7 @@ export default class Row extends React.Component {
                     value: "w"
                 }
             ]
-        }
+        };
 
         getDirections(data)
     };
@@ -69,22 +69,18 @@ export default class Row extends React.Component {
     render() {
         return (
 
-            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={false} showsHorizontalScrollIndicator={false}>
+            <ScrollView contentContainerStyle={Style.contentContainer} horizontal={false}
+                        showsHorizontalScrollIndicator={false}>
 
-                <View style = {Style.view} >
-                    <Text style = {Style.titre}>
+                <View style={Style.view}>
+                    <Text style={Style.titre}>
                         {this.props.id.nom}
                     </Text>
-                    <Text style = {Style.contenu}>
-                        {this.props.id.adresse},
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresse}, {this.props.id.code} {this.props.id.ville}
                     </Text>
-                    <Text style = {Style.contenu}>
-                        {this.props.id.code} {this.props.id.ville}
-                    </Text>
-                </View>
 
-                <View style = {Style.viewButton} >
-                    <Button onPress={this.handleGetDirections} title="Itinéraire" style = {Style.button} >
+                    <Button onPress={this.handleGetDirections} title="Itinéraire" style={Style.button}>
                         <Text style={Style.textBouton}>Itinéraire</Text>
                     </Button>
                 </View>
