@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, StyleSheet, ActivityIndicator, ListView} from 'react-native'
 import axios from "axios"
-import Row from "Rows/CommerceRow"
+import Row from "./Rows/CommerceRow"
 
 export default class commerce extends React.Component {
 
