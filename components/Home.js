@@ -30,9 +30,9 @@ class Home extends React.Component{
     submit3(){
         this.props.navigation.navigate('Partner')
     }
-    submit4(){
-        this.props.navigation.navigate('Calendar')
-    }
+    // submit4(){
+    //     this.props.navigation.navigate('Calendar')
+    // }
 
     render(){
 
