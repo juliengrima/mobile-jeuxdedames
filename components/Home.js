@@ -3,20 +3,34 @@ import {View, StyleSheet, Image, Text} from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import Button from 'apsl-react-native-button'
 import Artist from "./Artist";
+import Job from "./Job";
+import Commerce from "./Commerce";
+import Calendar from "./Calendar";
 
 class Home extends React.Component{
 
     static navigationOptions = {
+
         header: null,
-        title: 'Home',
+        title: 'Jeux de Dames'
+
     }
 
     constructor (props) {
         super(props)
     }
 
-    submit(){
+    submit1(){
         this.props.navigation.navigate('Artist')
+    }
+    submit2(){
+        this.props.navigation.navigate('Job')
+    }
+    submit3(){
+        this.props.navigation.navigate('Commerce')
+    }
+    submit4(){
+        this.props.navigation.navigate('Calendar')
     }
 
     render(){
@@ -27,20 +41,17 @@ class Home extends React.Component{
 
                 <Image source={require('../assets/home-image.png')} style={Style.image}/>
 
-                <Button
-                    onPress={() => this.submit()}
-                    style={Style.bouton}>
+                <Button onPress={() => this.submit1()} style={Style.bouton}>
                     <Text style={Style.textBouton}>Artistes</Text>
                 </Button>
-                {/*<Button*/}
-                    {/*onPress={() => this.submit()}*/}
-                    {/*style={Style.bouton}>*/}
-                    {/*<Text style={Style.textBouton}>Métiers</Text>*/}
-                {/*</Button>*/}
-                {/*<Button*/}
-                    {/*onPress={() => this.submit()}*/}
-                    {/*style={Style.bouton}>*/}
-                    {/*<Text style={Style.textBouton}>Partenaires</Text>*/}
+                <Button onPress={() => this.submit2()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>Métiers</Text>
+                </Button>
+                <Button onPress={() => this.submit3()} style={Style.bouton}>
+                    <Text style={Style.textBouton}>Commerçants</Text>
+                </Button>
+                {/*<Button onPress={() => this.submit4()} style={Style.bouton}>*/}
+                    {/*<Text style={Style.textBouton}>calendrier</Text>*/}
                 {/*</Button>*/}
 
             </View>
@@ -56,7 +67,7 @@ const Style = StyleSheet.create({
     },
     image: {
         marginTop: 30,
-        marginBottom: 50,
+        marginBottom: 0,
         width: 350,
         height: 350
     },
@@ -68,6 +79,12 @@ const Style = StyleSheet.create({
         color: '#ffff1a',
         fontSize: 20,
         fontWeight: 'bold',
+    },
+    header:{
+        backgroundColor: '#03C9A9',
+    },
+    headerTitle: {
+        color: '#ffff1a'
     }
 });
 
@@ -76,6 +93,16 @@ export default StackNavigator({
         screen: Home
     },
     Artist:{
-        screen: Artist
-    }
+        screen: Artist,
+    },
+    Job:{
+        screen: Job,
+    },
+    Commerce:{
+        screen: Commerce
+    },
+    Calendar:{
+        screen: Calendar,
+    },
+
 })

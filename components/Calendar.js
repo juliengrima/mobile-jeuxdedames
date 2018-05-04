@@ -1,21 +1,21 @@
 import React from 'react'
 import {StyleSheet, View, ActivityIndicator, ListView} from 'react-native'
 import axios from 'axios'
-import Row from './Rows/JobRow'
+import Row from './Rows/Row'
 
-export default class Job extends React.Component {
+export default class Artist extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Tri par métiers',
+        title: 'Evènements',
         headerStyle:{
             backgroundColor: '#03C9A9'
         },
-        headerTitleStyle:{
+       headerTitleStyle:{
             color: '#ffff1a'
         },
         headerBackTitleStyle:{
-            color: '#ffff1a'
+              color: '#ffff1a'
         },
         gesturesEnabled : true
     };
@@ -26,15 +26,15 @@ export default class Job extends React.Component {
             report: null
         }
         //EN ATTENTE DE RECEVOIR LES DONNEES DE JDD
-        this.artist()
+        this.calendar()
     }
 
-    artist(){
-        axios.get('http://www.lesjeuxdedames.com/mobile/job')
-            .then((response)  => {
-                // console.log(response.data)
-                this.setState({report: response.data})
-            })
+    calendar(){
+        axios.get('http://www.lesjeuxdedames.com/mobile/events')
+        .then((response)  => {
+            // console.log(response.data)
+            this.setState({report: response.data})
+        })
     }
 
     render(){
@@ -80,5 +80,4 @@ const Style = StyleSheet.create({
         flexDirection: 'row',
         padding: 10
     },
-
 });

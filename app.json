@@ -1,21 +1,21 @@
 {
   "expo": {
-    "name": "jeux-de-dames",
-    "description": "This project is really great.",
-    "slug": "jeux-de-dames",
+    "name": "lesJeuxdeDames",
+    "description": "Application permettant de lister les acteurs entourant l'association Les Jeux de Dames et de générer un itinéraire pour visiter lescommerces et exposants.",
     "privacy": "public",
     "sdkVersion": "25.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": ["android"],
+    "githubUrl": "https://github.com/juliengrima/mobile-jeuxdedames.git",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/jdd-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/home-image.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0bd7e4"
     },
-    "ios": {
-      "supportsTablet": true
+    "android": {
+      "package": "com.yourcompany.yourappname"
     }
   }
 }

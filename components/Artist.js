@@ -1,25 +1,69 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
-import { TabNavigator } from 'react-navigation'
-import Job from './Job'
-import Partner from './Partner'
+import {StyleSheet, View, ActivityIndicator, ListView} from 'react-native'
+import axios from 'axios'
+import Row from './Rows/ArtistRow'
 
 export default class Artist extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Home',
+        title: 'Tri par artistes',
+        headerStyle:{
+            backgroundColor: '#03C9A9'
+        },
+       headerTitleStyle:{
+            color: '#ffff1a'
+        },
+        headerBackTitleStyle:{
+              color: '#ffff1a'
+        },
+        gesturesEnabled : true
+    };
+
+    constructor (props){
+        super(props)
+        this.state = {
+            report: null
+        }
+        //EN ATTENTE DE RECEVOIR LES DONNEES DE JDD
+        this.artist()
+    }
+
+    artist(){
+        axios.get('http://www.lesjeuxdedames.com/mobile')
+            .then((response)  => {
+                // console.log(response.data)
+                this.setState({report: response.data})
+            })
     }
 
     render(){
-        return(
 
-            <View>
+        if (this.state.report === null){
+            return(
+                <View style={Style.viewIndicator}>
+                    <ActivityIndicator color={'#ffff1a'} size={"large"}/>
+                </View>
+            )
+        }
+        else{
 
-                <Text>VOICI MA PAGE ARTISTES</Text>
+            const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-            </View>
-        )
+            return(
+
+                <View style={Style.view}>
+
+                    <ListView
+                        style={Style.contentContainer}
+                        dataSource={ds.cloneWithRows(this.state.report)}
+                        renderRow={(row, j, k) => <Row id={row} index={k}/>}
+                    />
+
+                </View>
+
+            )
+        }
     }
 }
 
@@ -28,50 +72,13 @@ const Style = StyleSheet.create({
     view: {
         flex: 1,
         backgroundColor: '#0bd7e4',
-        marginTop: 30
     },
-    image: {
-        marginTop: 30,
-        marginBottom: 50,
-        width: 350,
-        height: 350
+    viewIndicator: {
+        flex: 1,
+        backgroundColor: '#0bd7e4',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        padding: 10
     },
-    bouton: {
-        backgroundColor: '#03C9A9',
-        borderColor: '#ffff1a'
-    },
-    textBouton: {
-        color: '#ffff1a',
-        fontSize: 20,
-        fontWeight: 'bold',
-    }
-});
 
-const Tabs = TabNavigator({
-    // mot affiché: { le render: la class à afficher }
-    Artistes: { screen: Artist },
-    Job: {screen: Job},
-    Partner: { screen: Partner }
-}, {
-    // tabBarPosition: 'top', //position de navbar
-    tabBarOptions: {
-        //options label ou icones et indicateur
-        showIcon: false,
-        showLabel: true,
-        activeTintColor: '#03C9A9',
-        activeBackgroundColor: '#ffff1a',
-        labelStyle: {
-            color: '#ffff1a',
-            fontSize: 12,
-            marginBottom: 15
-        },
-        tabStyle: {
-            backgroundColor: '#03C9A9',
-        },
-        indicatorStyle:{
-            backgroundColor:'#FFFFFF'
-        },
-    },
-    style:{
-    }
 });
