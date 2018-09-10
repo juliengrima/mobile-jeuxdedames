@@ -109,8 +109,74 @@ export default class Row extends React.Component {
         getDirections(data)
     };
 
+    displayCom1(){
+        if (this.props.nomCo1 == null){
 
+        }
+        else {
+            return(
 
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco1}
+                    </Text>
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco1}, {this.props.id.codeco1} {this.props.id.villeco1}
+                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo1} title="Itinéraire" style={Style.button}>
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
+                </View>
+
+            )
+        }
+    }
+    displayCom2(){
+        if (this.props.nomCo2 == null){
+
+        }
+        else {
+            return(
+
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco2}
+                    </Text>
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco2}, {this.props.id.codeco2} {this.props.id.villeco2}
+                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo2} title="Itinéraire" style={Style.button}>
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
+                </View>
+            )
+        }
+    }
+    displayCom3(){
+        if (this.props.nomCo3 == null){
+
+        }
+        else{
+            return(
+
+                <View style={Style.view2}>
+                    <Text style={Style.contenu}>
+                        {this.props.id.nomco3}
+                    </Text>
+                    <Text style={Style.contenu}>
+                        {this.props.id.adresseco3}, {this.props.id.codeco3} {this.props.id.villeco3}
+                    </Text>
+
+                    <Button onPress={this.handleGetDirectionsCo3} title="Itinéraire" style={Style.button}>
+                        <Text style={Style.textBouton}>Itinéraire</Text>
+                    </Button>
+                </View>
+
+            )
+        }
+    }
 
     render() {
         return (
@@ -127,48 +193,13 @@ export default class Row extends React.Component {
                     </Text>
                 </View>
 
-                <View style={Style.view2}>
-                    <Text style={Style.contenu}>
-                        {this.props.id.nomco1}
-                    </Text>
-                    <Text style={Style.contenu}>
-                        {this.props.id.adresseco1}, {this.props.id.codeco1} {this.props.id.villeco1}
-                    </Text>
-
-                    <Button onPress={this.handleGetDirectionsCo1} title="Itinéraire" style={Style.button}>
-                        <Text style={Style.textBouton}>Itinéraire</Text>
-                    </Button>
-                </View>
-
-                <View style={Style.view2}>
-                    <Text style={Style.contenu}>
-                        {this.props.id.nomco2}
-                    </Text>
-                    <Text style={Style.contenu}>
-                        {this.props.id.adresseco2}, {this.props.id.codeco2} {this.props.id.villeco2}
-                    </Text>
-
-                    <Button onPress={this.handleGetDirectionsCo2} title="Itinéraire" style={Style.button}>
-                        <Text style={Style.textBouton}>Itinéraire</Text>
-                    </Button>
-                </View>
-
-                <View style={Style.view2}>
-                    <Text style={Style.contenu}>
-                        {this.props.id.nomco3}
-                    </Text>
-                    <Text style={Style.contenu}>
-                        {this.props.id.adresseco3}, {this.props.id.codeco3} {this.props.id.villeco3}
-                    </Text>
-
-                    <Button onPress={this.handleGetDirectionsCo3} title="Itinéraire" style={Style.button}>
-                        <Text style={Style.textBouton}>Itinéraire</Text>
-                    </Button>
-                </View>
+                {this.displayCom1()}
+                {this.displayCom2()}
+                {this.displayCom3()}
 
             </ScrollView>
-
         )
+
     }
 
 }
