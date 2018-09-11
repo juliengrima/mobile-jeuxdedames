@@ -109,8 +109,8 @@ export default class Row extends React.Component {
         getDirections(data)
     };
 
-    displayCom1(){
-        if (this.props.nomCo1 == null){
+    displayCom1 () {
+        if (this.props.id.nomCo1 == null){
 
         }
         else {
@@ -133,7 +133,7 @@ export default class Row extends React.Component {
         }
     }
     displayCom2(){
-        if (this.props.nomCo2 == null){
+        if (this.props.id.nomCo2 == null){
 
         }
         else {
@@ -155,7 +155,7 @@ export default class Row extends React.Component {
         }
     }
     displayCom3(){
-        if (this.props.nomCo3 == null){
+        if (this.props.id.nomCo3 == null){
 
         }
         else{
